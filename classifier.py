@@ -458,7 +458,7 @@ class MainWindow(QMainWindow):
         self.setFocusPolicy(Qt.StrongFocus)
         self.setFocus()
 
-    # --- UI BUILD ──────────────────────────────────────────────
+    # --- UI BUILD
 
     def _build_ui(self):
         central = QWidget()
@@ -467,7 +467,7 @@ class MainWindow(QMainWindow):
         root.setContentsMargins(14, 12, 14, 10)
         root.setSpacing(8)
 
-        # --- Header row ────────────────────────────────────────
+        # --- Header row
         hdr = QHBoxLayout()
         title = QLabel("Vehicle Reclassification")
         title.setStyleSheet(
@@ -497,7 +497,7 @@ class MainWindow(QMainWindow):
         hdr.addWidget(self.db_lbl)
         root.addLayout(hdr)
 
-        # --- Progress bar ──────────────────────────────────────
+        # --- Progress bar
         prow = QHBoxLayout()
         self.prog_lbl = QLabel("Open a database to begin")
         self.prog_lbl.setStyleSheet("color:#A6E3A1; font-size:12px;")
@@ -509,7 +509,7 @@ class MainWindow(QMainWindow):
         prow.addWidget(self.prog_bar)
         root.addLayout(prow)
 
-        # --- Filter row ────────────────────────────────────────
+        # --- Filter row
         frow = QHBoxLayout()
         frow.addWidget(QLabel("Filter class:"))
         self.cls_cb = QComboBox()
@@ -539,7 +539,7 @@ class MainWindow(QMainWindow):
         frow.addWidget(legend)
         root.addLayout(frow)
 
-        # --- Class shortcut reference strip ────────────────────
+        # --- Class shortcut reference strip
         ref = QFrame()
         ref.setStyleSheet(
             "background:#1A1A2A; border-radius:8px;"
@@ -566,7 +566,7 @@ class MainWindow(QMainWindow):
         ref_layout.addStretch()
         root.addWidget(ref)
 
-        # --- Grid area (3×3) ───────────────────────────────────
+        # --- Grid area (3×3)
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
         scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
@@ -584,7 +584,7 @@ class MainWindow(QMainWindow):
             self.cards.append(c)
             self.grid.addWidget(c, i // GRID_COLS, i % GRID_COLS)
 
-        # --- Pagination row ────────────────────────────────────
+        # --- Pagination row
         page_row = QHBoxLayout()
 
         btn_style = """
@@ -635,7 +635,7 @@ class MainWindow(QMainWindow):
             "Press O to open a database, or click 'Open Database'"
         )
 
-    # --- DATABASE ──────────────────────────────────────────────
+    # --- DATABASE
 
     def _open_db(self):
         path, _ = QFileDialog.getOpenFileName(
@@ -666,7 +666,7 @@ class MainWindow(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Could not open:\n{e}")
 
-    # --- PAGE LOAD ─────────────────────────────────────────────
+    # --- PAGE LOAD
 
     def _load_page(self):
         if not self.db:
@@ -731,7 +731,7 @@ class MainWindow(QMainWindow):
             f"  |  Press 0-9 / A-G to classify  |  X = DELETE  |  U = undo"
         )
 
-    # --- SELECTION ─────────────────────────────────────────────
+    # --- SELECTION
 
     def _select(self, idx):
         n = len(self.current_rows)
@@ -747,7 +747,7 @@ class MainWindow(QMainWindow):
         self._select(idx)
         self.setFocus()
 
-    # --- CLASSIFY ──────────────────────────────────────────────
+    # --- CLASSIFY
 
     def _classify_selected(self, class_id):
         if not self.current_rows:
@@ -792,7 +792,7 @@ class MainWindow(QMainWindow):
         elif self.current_page < self.total_pages - 1:
             QTimer.singleShot(200, self._next_page)
 
-    # --- UNDO ──────────────────────────────────────────────────
+    # --- UNDO
 
     def _undo(self):
         if not self.undo_stack:
@@ -818,7 +818,7 @@ class MainWindow(QMainWindow):
             f"  Undo — ID {row_id} restored to: {old_cname}", 2000
         )
 
-    # --- PAGINATION ────────────────────────────────────────────
+    # --- PAGINATION
 
     def _first_page(self):
         self.current_page = 0
@@ -847,7 +847,7 @@ class MainWindow(QMainWindow):
         self.selected_idx = 0
         self._load_page()
 
-    # --- ZOOM ──────────────────────────────────────────────────
+    # --- ZOOM
 
     def _open_zoom(self):
         if not self.current_rows:
@@ -865,7 +865,7 @@ class MainWindow(QMainWindow):
     def _on_zoom_save(self, row_id, class_id):
         self._update_progress()
 
-    # --- KEYBOARD ──────────────────────────────────────────────
+    # --- KEYBOARD
 
     def keyPressEvent(self, event):
         k = event.key()
