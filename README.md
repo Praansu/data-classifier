@@ -1,26 +1,28 @@
 # Vehicle Labeling Tool
 
-A PyQt5 desktop application for manually classifying vehicle images. Loads images from a database and lets you assign categories using keyboard shortcuts.
+A desktop app for classifying vehicle images. Built with PyQt5 as a learning project to explore GUI development and data annotation workflows.
 
-## How it works
+## What It Does
+- Lets you browse through vehicle images from a database
+- Classify each image into 1 of 17 vehicle types (car, bus, truck, motorcycle, etc.)
+- All keyboard shortcuts — no mouse needed for fast labeling
+- Saves labels to a SQLite database
+- Supports undo, zoom, and progress tracking
 
-- Opens a SQLite database containing vehicle images
-- Displays 9 images per page in a 3x3 grid
-- Navigate with arrow keys, Page Up/Down, Home/End
-- Press a key (0-9, A-G) to assign a vehicle class
-- Supports undo, zoom view, filter by class/status
-- Tracks progress with a review counter
+## What I Learned
+- Building desktop applications with PyQt5
+- Working with SQLite databases
+- Designing user interfaces for productivity
+- Managing image data and file I/O in Python
 
-## Usage
+## How to Run
+```bash
+pip install PyQt5
+python reclassify_tool.py
+```
 
-
-
-Then press **O** or click "Open Database" to load a  or  file.
-
-## Classes
-
-Multi Axle Truck, Heavy Truck, Light Truck, Bus, Car, Motorcycle, Three Wheeler, Tractor, Cycle, Rickshaw, and more.
-
-## Built with
-
-PyQt5, SQLite, Python
+## Controls
+- Arrow keys: Navigate images
+- 0-9, A-G: Assign vehicle class
+- U: Undo last classification
+- Q: Quit
