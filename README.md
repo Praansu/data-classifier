@@ -1,46 +1,46 @@
-# 🏷️ Vehicle Labeling Tool
+# Vehicle Labeling Tool
 
-A **keyboard-first** desktop application for classifying vehicle images. Built with PyQt5 for speed and productivity — label 17 vehicle types without touching your mouse.
+I needed to label thousands of vehicle images for a classification project. Clicking through images one by one with a mouse? No thanks. So I built this — a keyboard-first labeling tool in PyQt5.
 
-## ✨ Features
+**17 vehicle classes. All keyboard shortcuts. Zero mouse required.**
 
-- **17 Vehicle Classes** — car, bus, truck, motorcycle, van, and more
-- **Keyboard-First Design** — all actions via keyboard shortcuts (no mouse needed)
-- **SQLite Database** — persistent label storage with progress tracking
-- **Undo Support** — revert accidental classifications
-- **Image Zoom** — inspect details before labeling
-- **Progress Tracking** — see how far along you are
+## How it works
 
-## 🖥️ Controls
+- Images pop up one at a time
+- Hit a key (0-9 or A-G) to assign a class
+- Arrow keys to navigate
+- Undo if you mess up (U key)
+- Zoom in if you need a closer look (Z key)
+- Everything saves to SQLite automatically
 
-| Key | Action |
-|-----|--------|
-| `←` `→` | Navigate images |
+## Controls
+
+| Key | What it does |
+|-----|-------------|
+| `←` `→` | Previous / next image |
 | `0-9`, `A-G` | Assign vehicle class |
-| `U` | Undo last classification |
-| `Z` | Zoom in/out |
+| `U` | Undo last label |
+| `Z` | Toggle zoom |
 | `Q` | Quit |
 
-## 🚀 Quick Start
+## Quick start
 
 ```bash
 pip install PyQt5
 python reclassify_tool.py
 ```
 
-## 🛠️ Built With
+## What this taught me
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![PyQt5](https://img.shields.io/badge/PyQt5-41CD52?style=flat-square&logo=qt&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+- PyQt5 is surprisingly capable for desktop apps
+- Keyboard-first UIs are faster but harder to design well
+- SQLite is perfect for local data — no server setup, just works
+- Sometimes the best tool for the job is the one you build yourself
 
-## 📚 What I Learned
+## Tech
 
-- Building desktop GUI applications with **PyQt5**
-- Designing **keyboard-first UIs** for data annotation productivity
-- **SQLite** database integration for persistent storage
-- Image loading, display, and file I/O in Python
+Python, PyQt5, SQLite
 
-## 📄 License
+## License
 
-MIT © 2026 Praansu Karmacharya
+MIT
